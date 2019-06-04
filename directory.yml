@@ -3,4 +3,8 @@
   tasks:
     - name: Details
       debug:
-        msg: "Hostname is 10.42.0.15"
+        msg: "Host 10.42.0.15 is a Tower server"
+        msg: "Host 10.42.0.16 is a Tower server"
+        msg: "Host 10.42.0.17 is a Tower server"
+        msg: "Host 10.42.0.18 is a database server"
+        msg: "Host 10.42.0.19 is an HA Proxy"
