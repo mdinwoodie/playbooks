@@ -1,5 +1,5 @@
 - name: Tower Directory
-  host: 10.42.0.15
+  hosts: all
   tasks:
     - name: Details
       debug:
