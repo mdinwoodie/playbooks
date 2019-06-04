@@ -1,0 +1,6 @@
+- name: Tower Directory
+  host: 10.42.0.15
+  tasks:
+    - name: Details
+      debug:
+        msg: "Hostname is 10.42.0.15"
