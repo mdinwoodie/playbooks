@@ -1,0 +1,6 @@
+- name: Print Message
+  hosts: localhost
+  tasks:
+    - name: Details
+      debug:
+        msg: "Message 1"
