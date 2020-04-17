@@ -1,0 +1,10 @@
+---
+- hosts: all
+  connection: local
+
+  tasks:
+
+    - name: Simulate long running job
+      command: /bin/sleep 6000
+      async: 6656
+      poll: 120
