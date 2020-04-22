@@ -1,0 +1,33 @@
+---
+- name: Print Messages 1
+  hosts: "{{ ansible_play_hosts[0:3] }}"
+  become: true
+  gather_facts: false
+  tasks:
+    - name: first group 1 2 3
+      debug:
+        msg: "Hello"
+- name: Print Messages 2
+  hosts: "{{ ansible_play_hosts[4:6] }}"
+  become: true
+  gather_facts: false
+  tasks:
+    - name: second group 4 5 6
+      debug:
+        msg: "Hello"
+- name: Print Messages 3
+  hosts: "{{ ansible_play_hosts[7:9] }}"
+  become: true
+  gather_facts: false
+  tasks:
+    - name: third group 7 8 9
+      debug:
+        msg: "Hello"
+- name: Print Messages 4
+  hosts: "{{ ansible_play_hosts[9:11] }}"
+  become: true
+  gather_facts: false
+  tasks:
+    - name: fourth group 10 11 12
+      debug:
+        msg: "Hello"
