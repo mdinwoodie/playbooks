@@ -1,36 +1,36 @@
 ---
-- name: Print Messages
-  hosts: all
+- name: Print Messages 1
+  hosts: "{{ ansible_play_hosts[0:3] }}"
   become: true
   gather_facts: false
-  serial: 3
-
   tasks:
-
     - name: first group 1 2 3
       debug:
-        msg: "Host: {{ item }}"
-      loop: "{{ ansible_play_hosts[0:2] }}"
-      delegate_to: "{{ item }}"
-      run_once: true
-
-    - name: second group 7 8 9
+        msg: "Hello"
+        
+- name: Print Messages 2
+  hosts: "{{ ansible_play_hosts[4:6] }}"
+  become: true
+  gather_facts: false
+  tasks:
+    - name: second group 4 5 6
       debug:
-        msg: "Host: {{ item }}"
-      loop: "{{ ansible_play_hosts[3:5] }}"
-      delegate_to: "{{ item }}"
-      run_once: true
-
-    - name: third group 4 5 6
+        msg: "Hello"
+        
+- name: Print Messages 3
+  hosts: "{{ ansible_play_hosts[7:9] }}"
+  become: true
+  gather_facts: false
+  tasks:
+    - name: third group 7 8 9
       debug:
-        msg: "Host: {{ item }}"
-      loop: "{{ ansible_play_hosts[6:8] }}"
-      delegate_to: "{{ item }}"
-      run_once: true
-
+        msg: "Hello"
+        
+- name: Print Messages 4
+  hosts: "{{ ansible_play_hosts[9:11] }}"
+  become: true
+  gather_facts: false
+  tasks:
     - name: fourth group 10 11 12
       debug:
-        msg: "Host: {{ item }}"
-      loop: "{{ ansible_play_hosts[9:11] }}"
-      delegate_to: "{{ item }}"
-      run_once: true
+        msg: "Hello"
