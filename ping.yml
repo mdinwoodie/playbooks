@@ -6,4 +6,5 @@
   tasks:
   - name: ping
     ping:
-    #delegate_to: localhost
+    delegate_to: localhost
+    become: false
