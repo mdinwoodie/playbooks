@@ -2,10 +2,8 @@
 - name: Ping test for local connection
   hosts: localhost
   gather_facts: false
-  become: false
   #connection: local
   tasks:
   - name: ping
     ping:
     delegate_to: localhost
-    #become: false
