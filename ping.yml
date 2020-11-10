@@ -2,7 +2,7 @@
 - name: Ping test for local connection
   hosts: localhost
   gather_facts: false
-  #connection: local
+  connection: local
   tasks:
   - name: ping
     ping:
