@@ -4,8 +4,10 @@
   gather_facts: false
   #connection: local
   tasks:
-  - name: Basic usage
+  - name: print username
     debug:
       msg: "'{{ lookup('env', 'TOWER_USERNAME') }}' is the TOWER_USERNAME environment variable."
+      
+  - name: print password
     debug:
       msg: "'{{ lookup('env', 'TOWER_PASSWORD') }}' is the TOWER_PASSWORD environment variable."
