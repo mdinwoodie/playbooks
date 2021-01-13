@@ -1,0 +1,11 @@
+---
+- name: env variable test
+  hosts: all
+  gather_facts: false
+  #connection: local
+  tasks:
+  - name: Basic usage
+    debug:
+      msg: "'{{ lookup('env', 'TOWER_USERNAME') }}' is the TOWER_USERNAME environment variable."
+    debug:
+      msg: "'{{ lookup('env', 'TOWER_PASSWORD') }}' is the TOWER_PASSWORD environment variable."
