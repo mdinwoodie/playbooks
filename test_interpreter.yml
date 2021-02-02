@@ -1,0 +1,7 @@
+---
+- hosts: fake
+  gather_facts: false
+  connection: local
+  tasks:
+    - name: try python
+      shell: echo 'hello world'
