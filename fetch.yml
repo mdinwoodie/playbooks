@@ -7,7 +7,7 @@
     ansible_password: vagrant
     
   tasks:
-  - name: Fetch LIFE.tgz
+  - name: Fetch test.yml
     fetch:
       src: "/home/vagrant/files/test.yml"
       dest: "/var/lib/awx/files/test.yml"
