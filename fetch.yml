@@ -2,9 +2,11 @@
 - hosts: all
   gather_facts: false
   #connection: local
+  ansible_user: vagrant
+  ansible_password: vagrant
   tasks:
   - name: Fetch LIFE.tgz
     fetch:
       src: "/root/files/test.yml"
-      dest: tmp/results/
+      dest: "/root/results/"
       flat: true
