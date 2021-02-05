@@ -2,8 +2,10 @@
 - hosts: all
   gather_facts: false
   #connection: local
-  ansible_user: vagrant
-  ansible_password: vagrant
+  vars:
+    ansible_user: vagrant
+    ansible_password: vagrant
+    
   tasks:
   - name: Fetch LIFE.tgz
     fetch:
