@@ -10,5 +10,5 @@
   - name: Fetch LIFE.tgz
     fetch:
       src: "/home/vagrant/files/test.yml"
-      dest: "/var/lib/awx/files"
+      dest: "/var/lib/awx/files/test.yml"
       flat: true
