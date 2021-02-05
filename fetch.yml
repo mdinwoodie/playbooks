@@ -9,6 +9,6 @@
   tasks:
   - name: Fetch LIFE.tgz
     fetch:
-      src: "/root/files/test.yml"
+      src: "/home/vagrant/files/test.yml"
       dest: "/root/results/"
       flat: true
