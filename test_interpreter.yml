@@ -7,4 +7,4 @@
       shell: echo 'hello world'
       
     - debug:
-      msg: "ansible_playbook_python: {{ ansible_playbook_python }}"
+        msg: "ansible_playbook_python: {{ ansible_playbook_python }}"
