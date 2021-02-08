@@ -1,5 +1,5 @@
 ---
-- hosts: localhost
+- hosts: test
   gather_facts: false
   connection: local
   tasks:
