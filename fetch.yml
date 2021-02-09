@@ -12,4 +12,4 @@
     fetch:
       src: "/home/vagrant/files/test.yml"
       dest: "root/results/"
-      #flat: true
+      flat: true
