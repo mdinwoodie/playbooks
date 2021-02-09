@@ -10,5 +10,5 @@
   - name: Fetch test.yml
     fetch:
       src: "/home/vagrant/files/test.yml"
-      dest: "/var/lib/awx/files/test.yml"
+      dest: "root/results/"
       #flat: true
