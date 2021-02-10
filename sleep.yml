@@ -4,4 +4,4 @@
   
   tasks:
   - name: sleep
-    shell: sleep 60
+    shell: sleep 6000
