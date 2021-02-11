@@ -28,7 +28,7 @@
         msg: "ansible_playbook_python: {{ ansible_playbook_python }}"
 
 
-    - name: "Get Compartment OCID of {{ env_stack }}-{{ app_group }}"
+    - name: "Get Compartment OCID of "{{ env_stack }}"-"{{ app_group }}""
       oci_compartment_facts:
         compartment_id: "{{ tenancy_ocid }}"
         name: "{{ env_group }}-{{ app_group }}"
