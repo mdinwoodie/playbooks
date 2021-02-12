@@ -1,35 +1,35 @@
 # My version
-#---
-#- hosts: localalias
-#  gather_facts: false
-#  connection: local
-#  tasks:
-#    - name: try python
-#      shell: echo 'hello world'
-#
-#    - debug:
-#        msg: "ansible_playbook_python: {{ ansible_playbook_python }}"
-
-# Customer version
 ---
 - hosts: localalias
+  gather_facts: false
   connection: local
-  gather_facts: yes
-
-  environment:
-    OCI_IDENTITY_DO_NOT_REDIRECT_TO_HOME_REGION: "1"
-    OCI_ANSIBLE_AUTH_TYPE: "instance_principal"
-    OCI_TENANCY: "{{ tenancy_ocid }}"
-    OCI_REGION: "{{ region }}"
-
   tasks:
+    - name: try python
+      shell: echo 'hello world'
 
     - debug:
         msg: "ansible_playbook_python: {{ ansible_playbook_python }}"
 
-
-    - name: Customer test module
-      oci_compartment_facts:
-        compartment_id: "{{ tenancy_ocid }}"
-        name: "{{ env_group }}-{{ app_group }}"
-      register: compartment_facts
+# Customer version
+#---
+#- hosts: localalias
+#  connection: local
+#  gather_facts: yes
+#
+#  environment:
+#    OCI_IDENTITY_DO_NOT_REDIRECT_TO_HOME_REGION: "1"
+#    OCI_ANSIBLE_AUTH_TYPE: "instance_principal"
+#    OCI_TENANCY: "{{ tenancy_ocid }}"
+#    OCI_REGION: "{{ region }}"
+#
+#  tasks:
+#
+#    - debug:
+#        msg: "ansible_playbook_python: {{ ansible_playbook_python }}"
+#
+#
+#    - name: Customer test module
+#     oci_compartment_facts:
+#        compartment_id: "{{ tenancy_ocid }}"
+#        name: "{{ env_group }}-{{ app_group }}"
+#      register: compartment_facts
