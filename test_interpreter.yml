@@ -1,6 +1,7 @@
 # My version
 ---
-- hosts: localalias
+#- hosts: localalias
+- hosts: localhost
   gather_facts: false
   connection: local
   
