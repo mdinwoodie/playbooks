@@ -1,6 +1,6 @@
 # My version
 ---
-- hosts: localalias
+- hosts: all
 #- hosts: localhost
   gather_facts: false
   connection: local
