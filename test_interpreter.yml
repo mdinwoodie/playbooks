@@ -3,7 +3,7 @@
 - hosts: localalias
 #- hosts: localhost
   gather_facts: false
-#  connection: local
+  connection: local
   
   tasks:
   
