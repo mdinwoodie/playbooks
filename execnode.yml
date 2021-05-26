@@ -4,4 +4,4 @@
   tasks:
   - name: Details
     debug:
-      msg: "Execution node: {{ execution_node }}"
+      msg: "Execution node: {{ tower_execution_node }}"
