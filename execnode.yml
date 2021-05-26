@@ -1,5 +1,6 @@
 - name: Print Execution Node
   hosts: localhost
+  gather_facts: false
   tasks:
   - name: Details
     debug:
