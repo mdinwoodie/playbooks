@@ -1,0 +1,6 @@
+- name: Print Execution Node
+  hosts: localhost
+  tasks:
+  - name: Details
+    debug:
+      msg: "Execution node: {{ execution_node }}"
