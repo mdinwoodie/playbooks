@@ -1,0 +1,4 @@
+
+collections:
+  - name: ibm.power_ibmi
+    type: git
