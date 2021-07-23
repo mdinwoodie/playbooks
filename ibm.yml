@@ -1,6 +1,7 @@
 
 - name: IBM i Test
   hosts: localhost
+  gather_facts: false
   collections:
     ibm.power_ibmi
   
