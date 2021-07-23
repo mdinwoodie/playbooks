@@ -7,7 +7,8 @@
   
   tasks:
   - name: Create a library by using CL command CRTLIB
-    ibm.power_ibmi.ibmi_cl_command:
+    #ibm.power_ibmi.ibmi_cl_command:
+    ibmi_cl_command:
       cmd: 'CRTLIB LIB(TESTLIB)'
       become_user: 'USER1'
       become_user_password: 'yourpassword'
