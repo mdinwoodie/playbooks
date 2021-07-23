@@ -3,7 +3,7 @@
   hosts: localhost
   gather_facts: false
   collections:
-    ibm.power_ibmi
+    - ibm.power_ibmi
   
   tasks:
   - name: Create a library by using CL command CRTLIB
