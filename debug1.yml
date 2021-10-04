@@ -3,4 +3,4 @@
   tasks:
   - name: Details
     debug:
-      msg: "Message 1"
+      msg: "This is the 'default/master' branch"
