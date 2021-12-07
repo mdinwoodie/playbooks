@@ -1,6 +1,12 @@
 - name: Print Message
   hosts: localhost
+  vars:
+    foo: bar
+    
   tasks:
     - name: Details
       debug:
         msg: "Message 2"
+
+    - name: debug variable
+      debug: {{ foo }}
