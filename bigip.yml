@@ -1,0 +1,39 @@
+---
+ - name: F5 Big-IP device
+   hosts: all
+   connection: local
+   gather_facts: false
+   collections:
+    - f5networks.f5_modules
+
+   tasks:
+#     - name: Setting up provider values
+#       set_fact:
+#         provider:
+#           server: "{{ f5_ip }}"
+#           server_port: "443"
+#           validate_certs: "False"
+           
+     - name: Import both key and cert
+       bigip_ssl_key_cert:
+         key_content: "{{ lookup('file', '{{ key }}') }}"
+         key_name: '{{ key_name }}'
+         cert_content: "{{ lookup('file', '{{ cert }}') }}"
+         cert_name: '{{ cert_name }}'
+         state: present
+         provider: "{{ provider }}"
+       delegate_to: localhost
+       
+     - name: import CA certificate chain
+       bigip_ssl_certificate:
+         name: '{{ chain_name }}'
+         state: present
+         content: "{{ lookup('file', '{{ chain }}') }}"
+         provider: "{{ provider }}"
+       delegate_to: localhost
+
+     - name: Sync configuration from device to group
+       bigip_configsync_action:
+         device_group: "{{ device_group }}"
+         sync_device_to_group: yes     
+         provider: "{{ provider }}"
