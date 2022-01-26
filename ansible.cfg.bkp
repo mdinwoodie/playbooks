@@ -1,6 +1,22 @@
 [defaults]
+
+nocows = 1
 host_key_checking = False
-roles_path = roles/
-collections_paths = collections/
-force_valid_group_names = never
-library = roles/modules-oracle-db:roles/modules-oci:roles/modules-omc:roles/modules-tower:~/.ansible/plugins/modules:/usr/share/ansible/plugins/modules
+
+remote_tmp = /tmp/.ansible-tower/${USER}/tmp
+async_dir= /tmp/.ansible_async/tmp
+remote_tmp = /tmp
+async_dir= /tmp
+allow_world_readable_tmpfiles = True
+pattern = *
+forks = 10
+timeout = 60
+poll_interval = 15
+transport = ssh
+
+[ssh_connection]
+ssh_args = -C -o ControlMaster=auto -o ControlPersist=300s -o AddressFamily=inet
+retries = 5
+
+pipelining = True
+control_path = %(directory)s/%%h
