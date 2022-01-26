@@ -1,5 +1,5 @@
 plugin: sampleplugin
-cmdb_hostname: solarwinds.alaskaair.com
+cmdb_hostname: host
 cmdb _username: "{{cmdb_username}}"
 cmdb _password: "{{cmdb_password}}"
 cmdb s_port: 443
