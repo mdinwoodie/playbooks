@@ -1,5 +1,15 @@
+---
+- name: Ping test for local connection
+  hosts: all
+  gather_facts: false
+  #connection: local
+  
+  tasks:
 
-
-- name: Get email start date for central time
-  shell: TZ='US/Pacific' date '+%Y-%m-%d %H:%M:%S %Z' --date='24 hours ago'
-  register: start_email_time
+  - name: Get date and time
+    shell: TZ='US/Pacific' date '+%Y-%m-%d %H:%M:%S %Z' --date='24 hours ago'
+    register: time
+    
+#  - name: Print date and time
+#    debug:
+#      time
