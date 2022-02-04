@@ -1,6 +1,6 @@
 ---
 - name: Ping test for local connection
-  hosts: all
+  hosts: localhost
   gather_facts: false
   #connection: local
   
