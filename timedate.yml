@@ -1,0 +1,5 @@
+
+
+- name: Get email start date for central time
+  shell: TZ='US/Pacific' date '+%Y-%m-%d %H:%M:%S %Z' --date='24 hours ago'
+  register: start_email_time
