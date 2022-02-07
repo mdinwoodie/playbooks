@@ -1,5 +1,5 @@
 ---
-- name: Ping test for local connection
+- name: Date and time test
   hosts: localhost
   gather_facts: false
   #connection: local
