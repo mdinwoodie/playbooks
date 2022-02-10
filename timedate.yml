@@ -10,7 +10,7 @@
       #name: US/Pacific
       name: America/New_York
   - name: Get date and time
-    shell: TZ='US/Pacific' date '+%Y-%m-%d %H:%M:%S %Z' --date='24 hours ago'
+    shell: date '+%Y-%m-%d %H:%M:%S %Z' --date='24 hours ago'
     register: time
     
 #  - name: Print date and time
