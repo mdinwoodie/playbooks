@@ -7,7 +7,8 @@
   tasks:
   - name: Set timezone
     timezone:
-      name: US/Pacific
+      #name: US/Pacific
+      name: local
   - name: Get date and time
     shell: TZ='US/Pacific' date '+%Y-%m-%d %H:%M:%S %Z' --date='24 hours ago'
     register: time
