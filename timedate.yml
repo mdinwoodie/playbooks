@@ -5,10 +5,12 @@
   #connection: local
   
   tasks:
+  
   - name: Set timezone
     timezone:
       #name: US/Pacific
       name: America/New_York
+      
   - name: Get date and time
     shell: date '+%Y-%m-%d %H:%M:%S %Z' --date='24 hours ago'
     register: time
