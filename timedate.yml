@@ -10,6 +10,8 @@
     timezone:
       #name: US/Pacific
       name: America/New_York
+    become: yes
+    become_method: sudo
       
   - name: Get date and time
     shell: date '+%Y-%m-%d %H:%M:%S %Z' --date='24 hours ago'
