@@ -1,0 +1,13 @@
+---
+- hosts: all
+
+  vars:
+    test_file: test.tar
+    local_src_path: /home/vagrant/test
+
+  tasks: 
+
+    - name: Copy and untar files
+      ansible.builtin.unarchive:
+        src: "{{ local_src_path }}/{{ test_file }}"
+        dest: /etc
