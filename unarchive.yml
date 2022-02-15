@@ -7,11 +7,11 @@
 
   tasks: 
 
-    - name: Unarchive tar file
-      unarchive:
-        src: "{{ local_src_path }}/{{ test_file }}"
-        dest: /etc
-        copy: yes
+#    - name: Unarchive tar file
+#      unarchive:
+#        src: "{{ local_src_path }}/{{ test_file }}"
+#        dest: /etc
+#        copy: yes
 
     - name: Copy tar file
       copy:
