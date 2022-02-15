@@ -8,6 +8,6 @@
   tasks: 
 
     - name: Copy and untar files
-      ansible.builtin.unarchive:
+      unarchive:
         src: "{{ local_src_path }}/{{ test_file }}"
         dest: /etc
