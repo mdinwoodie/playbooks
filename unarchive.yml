@@ -10,5 +10,5 @@
     - name: Copy and untar files
       unarchive:
         src: "{{ local_src_path }}/{{ test_file }}"
-        remote_src: "{{ local_src_path }}/{{ test_file }}"
         dest: /etc
+        copy: yes
