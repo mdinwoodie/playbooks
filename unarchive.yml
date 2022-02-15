@@ -2,7 +2,7 @@
 - hosts: all
 
   vars:
-    test_file: test.tar
+    test_file: test.yml
     local_src_path: /tmp/testperms/test
 
   tasks: 
