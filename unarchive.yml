@@ -10,7 +10,7 @@
     - name: Unarchive tar file
       unarchive:
         src: "{{ local_src_path }}/{{ test_file }}"
-        dest: /etc
+        dest: /tmp
         copy: yes
 
 #    - name: Copy tar file
