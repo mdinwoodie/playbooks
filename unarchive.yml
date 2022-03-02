@@ -3,8 +3,8 @@
 
   vars:
     test_file: test.tar
-    #local_src_path: /tmp/testperms/test
-    local_src_path: /home/vagrant/test
+    local_src_path: /tmp/test
+    #local_src_path: /home/vagrant/test
 
   tasks: 
 
