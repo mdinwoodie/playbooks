@@ -3,14 +3,15 @@
 
   vars:
     test_file: test.tar
-    local_src_path: /tmp/testperms/test
+    #local_src_path: /tmp/testperms/test
+    local_src_path: /home/vagrant/test
 
   tasks: 
 
     - name: Unarchive tar file
       unarchive:
         src: "{{ local_src_path }}/{{ test_file }}"
-        dest: /tmp
+        dest: /etc
         copy: yes
 
 #    - name: Copy tar file
