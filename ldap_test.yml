@@ -1,0 +1,9 @@
+---
+- name: LDAP module reproducer
+  hosts: all
+  gather_facts: false
+  
+  tasks:
+  - name: ldap_search test
+    community.general.ldap_search:
+      dn: "ou=groups,dc=example,dc=com"
