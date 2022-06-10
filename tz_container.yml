@@ -1,0 +1,18 @@
+ - name: TZ test for container
+   hosts: all
+   gather_facts: false
+   
+   tasks:
+ 
+   - name: Set some facts
+     set_fact:
+        cur_date_time: "{{lookup('pipe','TZ=\"America/Los_Angeles\" date \"+%Y%m%d_%H%M\"')}}"
+        cur_date_time_v1: "{{lookup('pipe', 'date \"+%Y%m%d_%H%M\"')}}"
+        
+   - name: debug cur_date_time
+     debug:
+       var: cur_date_time
+       
+   - name: debug cur_date_time_v1
+     debug:
+       var: cur_date_time_v1
