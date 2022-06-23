@@ -4,17 +4,16 @@
    
    tasks:
  
-   - name: Set some facts
+#   - name: Set some facts
+#     set_fact:
+#       cur_date_time: "{{lookup('pipe','TZ=\"America/Los_Angeles\" date \"+%Y%m%d_%H%M\"')}}"
+#       cur_date_time: "{{lookup('pipe', 'date \"+%Y%m%d_%H%M\"')}}"
+#       cur_date_time_v1: "{{lookup('pipe', 'date \"+%Y%m%d_%H%M\"')}}"
+#     delegate_to: localhost
+     
+     
+   - name: Set the date and time
      set_fact:
-       #ur_date_time: "{{lookup('pipe','TZ=\"America/Los_Angeles\" date \"+%Y%m%d_%H%M\"')}}"
-       cur_date_time: "{{lookup('pipe', 'date \"+%Y%m%d_%H%M\"')}}"
+       date_time: "{{lookup('pipe','TZ=\":America/Los_Angeles\" date \"+%Y%m%d_%H%M\"')}}"
        cur_date_time_v1: "{{lookup('pipe', 'date \"+%Y%m%d_%H%M\"')}}"
      delegate_to: localhost
-        
-   - name: debug cur_date_time
-     debug:
-       var: cur_date_time
-       
-   - name: debug cur_date_time_v1
-     debug:
-       var: cur_date_time_v1
