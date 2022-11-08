@@ -1,0 +1,10 @@
+- hosts:  10.56.1.11
+  gather_facts: False
+  remote_user: solise@ferc.gov
+  become: yes
+  tasks:
+    - name: upgrade all packages, excluding snappy*,java*,jdk*,jre*,R-*,R.*,libRm*,openblas* related packages
+      yum:
+        name: '*'
+        state: latest
+        exclude: snappy*,java*,jdk*,jre*,R-*,R.*,libRm*,openblas*
