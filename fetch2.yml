@@ -3,6 +3,8 @@
   hosts: all
   gather_facts: true
   become: true
+  ansible_user: vagrant
+  ansible_password: vagrant
   tasks:
     - name: use the fetch module
       fetch:
