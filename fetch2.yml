@@ -1,7 +1,7 @@
 ---
 - name: Fetch test in AAP 2.1.2
   hosts: all
-  gather_facts: true
+  #gather_facts: true
   become: true
   tasks:
     - name: use the fetch module
