@@ -1,5 +1,6 @@
 - name: /usr/bin/mailx test
   hosts: all
+  gather_facts: false
   
   tasks:
   - name: Send mail if preflight has failed state
