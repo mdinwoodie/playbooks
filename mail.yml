@@ -1,8 +1,0 @@
-- name: mailx test
-  hosts: all
-  
-  tasks:
-  - name: Send mail if preflight has failed state
-    ansible.builtin.shell: 
-      cmd: 'echo "{{ preflight_log }}" | /usr/bin/mailx -s "{{ inventory_hostname }}: Preflight check failed" test@test.com'
-    delegate_to: localhost 
