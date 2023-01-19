@@ -4,5 +4,5 @@
   tasks:
   - name: Send mail if preflight has failed state
     ansible.builtin.shell: 
-      cmd: 'echo "{{ preflight_log }}" | /usr/bin/mailx -s "{{ inventory_hostname }}: Preflight check failed" infrastructureengineering@schonfeld.com'
+      cmd: 'echo "{{ preflight_log }}" | /usr/bin/mailx -s "{{ inventory_hostname }}: Preflight check failed" test@test.com'
     delegate_to: localhost 
