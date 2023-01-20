@@ -1,0 +1,31 @@
+- name: Yum update test playbook
+  hosts: all
+  gather_facts: false
+  
+  tasks:
+  - name: Perform yum update
+    ansible.builtin.yum:
+      name: '*'
+      exclude:
+        - couch*
+        - nodejs*
+        - npm*
+        - newrelic*
+        - percona*
+        - nginx*
+        - jenkins*
+        - azure*
+        - mysql*
+        - redis*
+        - rabbitmq*
+        - postgres*
+        - mongo*
+        - netdata*
+        - mssql*
+        - pgba*
+        - pg_repack*
+        - repmgr*
+        - pgpool*
+      state: latest
+      lock_timeout: 180
+      update_cache: yes
