@@ -1,0 +1,10 @@
+plugin: device42.d42.d42
+url: https://10.42.0.60
+ssl_check: False
+debug: False
+clean_device_name: False
+keyed_groups:
+    - key: d42_tags.split(",")
+      prefix: ''
+      separator: ''
+      default_value: unmanaged
