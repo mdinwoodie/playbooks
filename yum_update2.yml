@@ -1,6 +1,6 @@
 - name: Example ansible play that yum update and reboot
   hosts: all
-  ignore_unreachable: true
+  #ignore_unreachable: true
   #remote_user: ansible
   become: true
   become_method: sudo
