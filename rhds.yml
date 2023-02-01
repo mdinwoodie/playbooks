@@ -1,0 +1,10 @@
+- name: RHDS test for case 03425771
+  hosts: all
+  gather_facts: false
+  
+  tasks:
+  - name: Install RHDS from Repository
+    yum: 
+      name: 
+        - "@redhat-ds"
+      state: latest
