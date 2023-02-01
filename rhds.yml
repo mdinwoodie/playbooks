@@ -6,5 +6,5 @@
   - name: Install RHDS from Repository
     yum: 
       name: 
-        - "@redhat-ds"
+        - "redhat-ds"
       state: latest
