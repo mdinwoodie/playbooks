@@ -1,5 +1,5 @@
 - name: file creation test
-  hosts: all
+  hosts: localhost
   gather_facts: false
   
   tasks:
