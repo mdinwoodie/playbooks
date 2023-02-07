@@ -10,4 +10,4 @@
       #owner: awx
       #group: awx
       mode: 0755
-    #delegate_to: 10.42.0.20
+    delegate_to: 10.42.0.20
