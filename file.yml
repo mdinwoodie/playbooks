@@ -7,7 +7,7 @@
     ansible.builtin.file:
       path: /tmp/tmp_files
       state: directory
-      owner: awx
-      group: awx
+      #owner: awx
+      #group: awx
       mode: 0755
-    delegate_to: 10.42.0.20
+    #delegate_to: 10.42.0.20
