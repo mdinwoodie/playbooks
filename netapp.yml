@@ -7,6 +7,8 @@
     na_ontap_interface:
       #<<: *input
       hostname: test
+      username: test
+      password: test
       use_rest: always
       interface_name: test1
       home_port: 13
