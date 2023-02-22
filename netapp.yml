@@ -5,7 +5,7 @@
   tasks:
    - name: ontap probe_port test
       na_ontap_interface:
-        <<: *input
+        #<<: *input
         use_rest: always
         interface_name: test1
         home_port: 13
