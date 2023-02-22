@@ -6,7 +6,7 @@
   - name: ontap probe_port test
     na_ontap_interface:
       #<<: *input
-      hostname: test
+      hostname: 10.42.0.198
       username: test
       password: test
       use_rest: always
