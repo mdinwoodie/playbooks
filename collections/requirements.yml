@@ -1,10 +1,12 @@
 ---
 collections:
+- name: netapp.ontap
+  version: 23.1
 #- name: community.general
   #version: 4.8.1
-- name: device42.d42
-  version: 1.1.2
-  source: https://galaxy.ansible.com/
+#- name: device42.d42
+#  version: 1.1.2
+#  source: https://galaxy.ansible.com/
 #- name: ibm.power_ibmi
 #  type: git
 #- f5networks.f5_modules
