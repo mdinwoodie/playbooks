@@ -19,6 +19,6 @@
       probe_port: 1331
       failover_policy: system-defined
       is_auto_revert: true
-      address: test
+      address: 10.42.0.198
       netmask: test
-      vserver: test
+      vserver: 10.42.0.198
