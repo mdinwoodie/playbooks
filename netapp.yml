@@ -1,0 +1,21 @@
+- name: netapp module test
+  hosts: all
+  gather_facts: false
+  
+  tasks:
+   - name: ontap probe_port test
+      na_ontap_interface:
+        <<: *input
+        use_rest: always
+        interface_name: test1
+        home_port: 13
+        home_node: test
+        role: data
+        protocols: nfs,cifs
+        admin_status: up
+        probe_port: 1331
+        failover_policy: system-defined
+        is_auto_revert: true
+        address: test
+        netmask: test
+        vserver: test
