@@ -1,16 +1,16 @@
 ---
 # CORRECT CODE:
-- hosts: localhost
-  gather_facts: false
-  tasks:
-  - name: first playbook
-    ping:
-- import_playbook: sub_playbook.yml
-
-# WRONG CODE:
 #- hosts: localhost
 #  gather_facts: false
 #  tasks:
-#  - ping:
-#  - import_playbook:
-#    name: sub_playbook.yml
+#  - name: first playbook
+#    ping:
+#- import_playbook: sub_playbook.yml
+
+# WRONG CODE:
+- hosts: localhost
+  gather_facts: false
+  tasks:
+  - ping:
+  - import_playbook:
+    name: sub_playbook.yml
