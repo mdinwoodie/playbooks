@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  gather_facts: false
+  tasks:
+  - ping:
+
+- import_playbook: sub_playbook.yml
