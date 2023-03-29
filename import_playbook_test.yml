@@ -1,6 +1,6 @@
 ---
 # CORRECT CODE:
-#- hosts: localhost
+#- hosts: all
 #  connection: ssh
 #  gather_facts: false
 #  tasks:
@@ -9,7 +9,7 @@
 #- import_playbook: sub_playbook.yml
 
 # WRONG CODE:
-- hosts: localhost
+- hosts: all
   connection: ssh
   gather_facts: false
   tasks:
