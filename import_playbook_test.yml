@@ -1,6 +1,7 @@
 ---
 # CORRECT CODE:
 #- hosts: localhost
+#  connection: ssh
 #  gather_facts: false
 #  tasks:
 #  - name: first playbook
@@ -9,6 +10,7 @@
 
 # WRONG CODE:
 - hosts: localhost
+  connection: ssh
   gather_facts: false
   tasks:
   - ping:
