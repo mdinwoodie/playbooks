@@ -5,12 +5,17 @@
   
   tasks:
 
+#  - name: Copy test.conf to remote hosts
+#    copy:
+#      src: "{{ item.src }}"
+#      dest: "{{ item.dest }}"
+#    with_items:
+#      - { src: /var/lib/awx/projects/proj_dep_files/test.conf, dest: /etc/rsyslog.d/test.conf }
+      
   - name: Copy test.conf to remote hosts
     copy:
-      src: "{{ item.src }}"
-      dest: "{{ item.dest }}"
-    with_items:
-      - { src: /var/lib/awx/projects/proj_dep_files/test.conf, dest: /etc/rsyslog.d/test.conf }
+      src: /var/lib/awx/projects/proj_dep_files/test.conf
+      dest: /etc/rsyslog.d/test.conf
       
   - name: Copy template to remote hosts
     template:
