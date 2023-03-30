@@ -1,0 +1,20 @@
+---
+- name: job isolation test
+  hosts: all
+  #become: yes
+  
+  tasks:
+
+  - name: Copy test.conf to remote hosts
+    copy:
+      src: "{{ item.src }}"
+      dest: "{{ item.dest }}"
+    with_items:
+      - { src: /var/lib/awx/projects/proj_dep_files/test.conf, dest: /etc/rsyslog.d/test.conf }
+      
+  - name: Copy template to remote hosts
+    template:
+      src: /var/lib/awx/projects/proj_dep_files/test.conf.j2
+      dest: /etc/rsyslog.d/test.conf
+      owner: root
+      group: root
