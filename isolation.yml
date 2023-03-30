@@ -21,5 +21,5 @@
     template:
       src: /var/lib/awx/projects/proj_dep_files/test.conf.j2
       dest: /tmp/test.conf
-      owner: root
-      group: root
+      #owner: root
+      #group: root
