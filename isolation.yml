@@ -10,7 +10,7 @@
       src: "{{ item.src }}"
       dest: "{{ item.dest }}"
     with_items:
-      - { src: /var/lib/awx/projects/proj_dep_files/subdir/test.conf, dest: /tmp/test.conf }
+      - { src: test.conf, dest: /tmp/test.conf }
       
 #  - name: Copy test.conf to remote hosts
 #    copy:
@@ -19,7 +19,7 @@
       
   - name: Copy template to remote hosts
     template:
-      src: /var/lib/awx/projects/proj_dep_files/subdir/test.conf.j2
+      src: test.conf.j2
       dest: /tmp/test.conf
       #owner: root
       #group: root
