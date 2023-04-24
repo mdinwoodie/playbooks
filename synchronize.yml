@@ -8,4 +8,4 @@
       dest: /home/ansible/
       mode: push
     delegate_to: localhost
-    become: true
+    #become: true
