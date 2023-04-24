@@ -7,5 +7,5 @@
       src: /home/ansible/test.txt
       dest: /home/ansible/
       mode: push
-    delegate_to: localhost
+    #delegate_to: localhost
     #become: true
