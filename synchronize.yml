@@ -2,7 +2,7 @@
   hosts: all
   tasks:
   
-  - name: Copy daily checklist
+  - name: Copy test file
     synchronize:
       src: /home/ansible/test.txt
       dest: /home/ansible/
