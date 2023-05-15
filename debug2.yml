@@ -1,7 +1,7 @@
 - name: Print Message
   hosts: localhost
-  vars:
-    foo: bar
+  #vars:
+    #foo: bar
     
   tasks:
     - name: Details
@@ -9,4 +9,4 @@
         msg: "Message 2"
 
     - name: debug variable
-      debug: {{ foo }}
+      debug: "{{ foo }}"
