@@ -1,7 +1,7 @@
 - name: Print Message
   hosts: localhost
   vars:
-    foo: bar
+    foo: "bar"
     
   tasks:
     - name: Details
