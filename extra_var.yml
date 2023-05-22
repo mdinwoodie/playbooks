@@ -4,5 +4,4 @@
   tasks: 
     - name: my hello world task
       ansible.builtin.debug: 
-        #msg: "hello world. {{ extra_args_v | default(omit) }}"
-        msg: "hello world. {{ extra_args_v }}"
+        msg: "hello world. {{ extra_args_v | default(omit) }}"
