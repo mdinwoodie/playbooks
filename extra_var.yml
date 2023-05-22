@@ -1,0 +1,7 @@
+---
+- name: my hello world playbook
+  hosts: all
+  tasks: 
+    - name: my hello world task
+      ansible.builtin.debug: 
+        msg: "hello world. {{ extra_args_v | default(omit) }}"
