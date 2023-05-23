@@ -1,0 +1,14 @@
+- name: Set a custom fact
+  hosts: all
+  gather_facts: true
+
+  tasks:
+
+    - name: Set GPU fact
+      set_fact:
+        foo: bar
+        cachable: true
+
+    - name: Debug
+      debug:
+        msg: "{{ foo }}"
