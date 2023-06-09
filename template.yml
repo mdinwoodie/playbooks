@@ -1,0 +1,14 @@
+---
+- name: Template module test
+  hosts: all
+  gather_facts: false
+  
+  tasks:
+
+  - name: Set syslog conf
+    template:
+      src: syslog.conf.j2
+      dest: /etc/audit/plugins.d/syslog.conf
+      owner: root 
+      group: root 
+      mode: "0640"
