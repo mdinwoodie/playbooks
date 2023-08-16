@@ -1,9 +1,8 @@
 ---
 collections:
-- name: netapp.ontap
-  version: '22.3'
-#- name: community.general
-  #version: 4.8.1
+#- name: netapp.ontap
+#  version: '22.3'
+- name: community.general
 #- name: device42.d42
 #  version: 1.1.2
 #  source: https://galaxy.ansible.com/
