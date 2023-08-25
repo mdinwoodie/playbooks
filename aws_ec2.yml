@@ -1,0 +1,16 @@
+# Configuration for Ansible aws_ec2 Inventory Plugin
+plugin: amazon.aws.aws_ec2
+regions: []
+filters: {}
+keyed_groups:
+  - key: tags.Environment
+    prefix: ""
+    separator: ""
+  - key: tags.Application
+    prefix: ""
+    separator: ""
+  - key: platform | default("linux")
+    prefix: ""
+    separator: ""
+hostnames:
+  - 10.42.0.131
