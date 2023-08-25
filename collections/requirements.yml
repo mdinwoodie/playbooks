@@ -9,3 +9,4 @@ collections:
 #- name: ibm.power_ibmi
 #  type: git
 #- f5networks.f5_modules
+- name: amazon.aws
