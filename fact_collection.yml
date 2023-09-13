@@ -1,0 +1,12 @@
+---
+- hosts: all
+  become: no
+  gather_facts: true
+  
+  tasks:
+  - name: Print all available facts
+    ansible.builtin.debug:
+      var: ansible_facts
+      
+  - name: do a ping to gather facts
+    ping:
