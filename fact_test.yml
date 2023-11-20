@@ -1,0 +1,14 @@
+---
+- name: fact test
+  hosts: all
+  gather_facts: true
+  
+  tasks:
+  
+  - name:
+    set_fact:
+      commands: "{{ commands | default([]) }} + ['{{ command_str }}']"
+
+  - name: sur command 
+    set_fact:
+      commands: "['ALL'] + {{ commands }}"
