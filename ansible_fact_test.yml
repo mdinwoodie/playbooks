@@ -1,0 +1,16 @@
+---
+- name: Block tasks from running
+  hosts: all 
+
+  pre_tasks:
+    - name: "Get the servername and set the fact."
+      set_fact:
+        MySrv: "{{ inventory_hostname }}"
+ 
+    - name: "print all available facts."
+      debug:
+        var: ansible_facts
+ 
+    - name: "set ip address fact."  
+      set_fact:
+        MyIP: "{{ ip_addresses[0] }}"
