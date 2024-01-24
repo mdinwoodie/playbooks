@@ -13,4 +13,4 @@
  
     - name: "set ip address fact."  
       set_fact:
-        MyIP: "{{ ansible_ip_addresses[0] }}"
+        MyIP: "{{ ip_addresses[0] }}"
