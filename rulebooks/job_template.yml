@@ -12,11 +12,6 @@
            host_separator: ";" 
         
   rules:
-    - name: r1
-      condition: event.i == 1
-      action:
-        debug:
-
     - name: "Host specific rule"
       condition:
         all:
@@ -26,7 +21,7 @@
           
       action:
         run_job_template:
-          name: temp_example
+          name: Ping
           organization: Default
           job_args:
             limit: "{{ payload.meta.hosts }}"
