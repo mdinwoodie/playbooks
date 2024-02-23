@@ -1,27 +1,23 @@
-- name: Run job template
+---
+- name: Respond to webhook POST
   hosts: all
-  gather_facts: true
-  
   sources:
     - ansible.eda.webhook:
+        host: 0.0.0.0
         port: 5000
-      filters:
-        - ansible.eda.insert_hosts_to_meta:
-           host_path: "payload.meta.hosts"
-           path_separator: "." 
-           host_separator: ";" 
-        
+
+  filters:
+      - ansible.eda.insert_hosts_to_meta:
+          host_path: "event.payload.Hostname"
+          path_separator: "."
+          host_separator: ";"
+
   rules:
-    - name: "Host specific rule"
-      condition:
-        all:
-          - fact.ansible_os_family == "linux"
-          - fact.meta.hosts == "my-host"
-          - event.i == 4
-          
+    - name: Launch JT with limit set to a host
+      condition: event.payload.Hostname is defined
       action:
         run_job_template:
-          name: Ping
-          organization: Default
+          name: "Ping"
+          organization: "Default"
           job_args:
-            limit: "{{ payload.meta.hosts }}"
+            limit: "{{ event.payload.Hostname }}"
