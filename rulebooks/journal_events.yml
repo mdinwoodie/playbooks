@@ -1,0 +1,17 @@
+---
+- name: Display system journal events
+  hosts: all
+
+  sources:
+    - name: Watch the system journal
+      ansible.eda.journald:
+        match: "SYSLOG_FACILITY=10"
+        delay: 2
+
+  rules:
+    - name: Display event information
+      # condition: event.journald._comm == "useradd"
+      condition: event.journald._comm in vars.identity_commands
+      action:
+        debug:
+          var: event.journald.message
