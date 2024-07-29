@@ -1,0 +1,15 @@
+---
+- name: Check Tower-Test
+  hosts: all
+  sources:
+    - ansible.eda.url_check:
+        urls:
+          - https://10.42.0.80
+        delay: 10
+  rules:
+    - name: Echo
+      condition: event.url_check.status == "up"
+      action:
+        run_job_template:
+          name: "Demo Job Template"
+          organization: Default
