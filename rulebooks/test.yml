@@ -1,0 +1,38 @@
+---
+- name: Listen for chat message trigger-words
+  hosts: localhost
+  
+  sources:
+    - name: Match events posted to port 5000
+      ansible.eda.webhook:
+        host: 0.0.0.0
+        port: 5000
+
+  rules:
+    # When the message "say-hello" is sent in the "town-square" channel,
+    # run the "Say Hello" job template
+    - name: Say hello
+      condition: >
+        event.payload.channel_name == "town-square"
+        and event.payload.trigger_word == "say-hello"
+      action:
+        post_event:
+          event:
+            message: "Hello, {{ event.payload.user_name }}!  It is {{ lookup('pipe', 'date +%H:%M:%S') }}"
+
+    - name: Send a chat message
+      condition: event.message is defined
+      action:
+        run_job_template:
+          name: Demo Job Template
+          organization: Default
+          post_events: true
+          job_args:
+            extra_vars:
+              message: "{{ event.message }}"
+
+    - name: Print event data
+      condition: event.payload is defined
+      action:
+        print_event:
+          pretty: true
