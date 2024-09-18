@@ -1,0 +1,17 @@
+---
+- name: ServiceNow Incident Tests
+  hosts: localhost
+  gather_facts: false
+  
+  tasks:
+  - name: Read test
+    servicenow.itsm.incident_info:
+      instance:
+        host: "{{ sn_host }}"
+        username: "{{ sn_user }}" 
+        password: "{{ sn_pass }}"
+        number: INC0000012
+    register: read
+
+  - debug:
+      var: read
