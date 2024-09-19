@@ -1,0 +1,13 @@
+---
+- name: Variable Survey Test
+  hosts: localhost
+  gather_facts: false
+  vars:
+    sn_host: "{{ sn_host }}"
+    sn_user: "{{ sn_user }}" 
+    sn_pass: "{{ sn_pass }}"
+  
+  tasks:
+
+  - debug:
+      var: vars
