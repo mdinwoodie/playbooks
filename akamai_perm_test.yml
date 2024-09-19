@@ -2,7 +2,7 @@
   hosts: all
   become: true
   become_user: vagrant
-  become_pass: vagrant
+  
   tasks:
   - name: Purge akamai cache
     command: akamai-purge --edgerc ~/.edgerc --section default {{ akamai_purge_method | default('invalidate') }} --cpcode {{ akamai_cp_code }}
