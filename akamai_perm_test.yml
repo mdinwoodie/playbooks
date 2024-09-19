@@ -1,0 +1,12 @@
+- name: Execute Akamai Purge
+  hosts: all
+  become: true
+  become_user: vagrant
+  tasks:
+  - name: Purge akamai cache
+    command: akamai-purge --edgerc ~/.edgerc --section default {{ akamai_purge_method | default('invalidate') }} --cpcode {{ akamai_cp_code }}
+    register: purge
+
+  - name: Report on purge request
+    debug:
+      msg: "{{ purge.stderr_lines }}"
