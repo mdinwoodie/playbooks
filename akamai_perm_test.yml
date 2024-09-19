@@ -1,7 +1,8 @@
 - name: Execute Akamai Purge
   hosts: all
   become: true
-  become_user: vagrant
+  become_user: root
+  remote_user: vagrant
   
   tasks:
   - name: Purge akamai cache
