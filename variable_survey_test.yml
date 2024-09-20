@@ -10,4 +10,4 @@
   tasks:
 
   - debug:
-      var: vars
+      msg: "The hostname is {{ sn_host }}, the username is {{ sn_user }}, and the password is {{ sn_pass }}"
