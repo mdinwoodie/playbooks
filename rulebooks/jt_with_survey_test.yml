@@ -19,7 +19,6 @@
           organization: Default
           job_args:
             extra_vars:
-
-              sn_host: 'host1'
-              sn_user: 'other_user'
-              sn_pass: '67890'
+              #sn_host: 'host1'
+              #sn_user: 'other_user'
+              #sn_pass: '67890'
