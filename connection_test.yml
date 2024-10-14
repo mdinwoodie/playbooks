@@ -7,7 +7,7 @@
   - name: Gather facts
     ansible.builtin.gather_facts:
       gather_timeout: 30
-      register: gather_facts_output
+    register: gather_facts_output
   # WORKS
   - name: Debug failed connectivity
     ansible.builtin.debug:
