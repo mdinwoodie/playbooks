@@ -1,24 +1,12 @@
 - hosts: all
+  serial: 1
   gather_facts: false
   ignore_unreachable: true
 
   tasks:
 
   - name: Gather facts
-    ansible.builtin.gather_facts:
-      gather_timeout: 30
-    register: gather_facts_output
-  # WORKS
-  - name: Debug failed connectivity
-    ansible.builtin.debug:
-      msg: "Failed connectivity: {{ inventory_hostname }} {{ ansible_host }}"
-    when:
-    - gather_facts_output.msg is defined
-    - "'Connection timed out' in gather_facts_output.msg"
-  # WORKS
-  - name: Debug failed credential
-    ansible.builtin.debug:
-      msg: "Failed credential: {{ inventory_hostname }} {{ ansible_host }}"
-    when:
-    - gather_facts_output.msg is defined
-    - "'Permission denied' in gather_facts_output.msg"
+    timeout: 30
+    ansible.builtin.setup:
+      gather_subset: 
+        - min
