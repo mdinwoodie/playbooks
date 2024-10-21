@@ -15,7 +15,7 @@
       condition: event.alert.labels.alertname == "selinux disabled" and event.alert.status == "firing"
       action:
         run_job_template:
-          name: Apply baseline
+          name: Demo Job Template
           organization: Default
           job_args:
             limit: "{{ event.meta.hosts }}"
