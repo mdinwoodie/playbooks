@@ -17,3 +17,6 @@
               message: from eda
               sender: "{{ event.payload.sender }}"
               sleep: 1
+
+# Trigger rulebook with the following command:
+# curl --header "Content-Type: application/json" --request POST --data '{"message":"Ansible is super cool"}' http://$EDA_CONTROLLER:5001
