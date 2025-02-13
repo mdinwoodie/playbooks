@@ -17,7 +17,7 @@
 #      update_cache: yes
 
   - name: Perform yum update
-    ansible.builtin.yum:
+    ansible.builtin.dnf:
       name: 'chrony'
       state: latest
       lock_timeout: 180
