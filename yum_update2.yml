@@ -2,16 +2,8 @@
   hosts: all
   #ignore_unreachable: true
   #remote_user: ansible
-  become: true
-  become_method: sudo
-  become_user: root
   gather_facts: no
-  serial: 1  
      
   tasks:
-    - name: Perform yum update of all packages
-      shell: yum -y update --skip-broken
-      ignore_errors: yes
-      ignore_unreachable: yes
-      #args:
-         #warn: no
+    - name: Perform dnf update of all packages
+      shell: "dnf update chrony -y"
