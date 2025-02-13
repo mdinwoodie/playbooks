@@ -3,29 +3,22 @@
   gather_facts: false
   
   tasks:
+#  - name: Perform yum update
+#    ansible.builtin.yum:
+#      name: '*'
+#      exclude:
+#        - couch*
+#        - nodejs*
+#        - npm*
+#        - newrelic*
+#        - percona*
+#      state: latest
+#      lock_timeout: 180
+#      update_cache: yes
+
   - name: Perform yum update
     ansible.builtin.yum:
-      name: '*'
-      exclude:
-        - couch*
-        - nodejs*
-        - npm*
-        - newrelic*
-        - percona*
-        - nginx*
-        - jenkins*
-        - azure*
-        - mysql*
-        - redis*
-        - rabbitmq*
-        - postgres*
-        - mongo*
-        - netdata*
-        - mssql*
-        - pgba*
-        - pg_repack*
-        - repmgr*
-        - pgpool*
+      name: 'chrony'
       state: latest
       lock_timeout: 180
       update_cache: yes
