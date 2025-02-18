@@ -1,0 +1,24 @@
+---
+- name: Respond to webhook POST
+  hosts: all
+  sources:
+    - ansible.eda.webhook:
+        host: 0.0.0.0
+        #port: 5000
+        port: 6000
+
+  filters:
+      - ansible.eda.insert_hosts_to_meta:
+          host_path: "event.payload.Hostname"
+          path_separator: "."
+          host_separator: ";"
+
+  rules:
+    - name: Launch JT with limit set to a host
+      condition: event.payload.Hostname is defined
+      action:
+        run_job_template:
+          name: "Ping"
+          organization: "Default"
+          job_args:
+            limit: "{{ event.payload.Hostname }}"
