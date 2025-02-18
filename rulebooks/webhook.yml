@@ -12,11 +12,11 @@
         run_job_template:
           name: 'Demo Job Template'
           organization: Default
-          job_args:
-            extra_vars:
-              message: from eda
-              sender: "{{ event.payload.sender }}"
-              sleep: 1
+          #job_args:
+            #extra_vars:
+              #message: from eda
+              #sender: "{{ event.payload.sender }}"
+              #sleep: 1
 
 # Trigger rulebook with the following command:
 # curl --header "Content-Type: application/json" --request POST --data '{"message":"Ansible is super cool"}' http://$EDA_CONTROLLER:5001
