@@ -1,0 +1,16 @@
+---
+- hosts: all
+  gather_facts: false
+  tasks:
+
+    - name: "Hello world message n°1"
+      ansible.builtin.debug:
+        msg: "hello world 1!"
+
+    - name: "Pause in seconds"
+      ansible.builtin.pause:
+       seconds: "{{ pause_seconds | default(30) }}"
+
+    - name: "Hello world message n°2"
+      ansible.builtin.debug:
+        msg: "hello world 2!" 
