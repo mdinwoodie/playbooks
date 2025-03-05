@@ -10,8 +10,8 @@
   tasks:
   - name: Sleep Command Loop
     ansible.builtin.command: sleep {{ sleep_time }}
-      changed_when: false
-      loop: "{{ range(0, loop_count) | list }}"
+    changed_when: false
+    loop: "{{ range(0, loop_count) | list }}"
       
   - name: Display Message
     ansible.builtin.debug:
