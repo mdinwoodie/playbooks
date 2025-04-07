@@ -10,3 +10,4 @@ collections:
 #  type: git
 #- f5networks.f5_modules
 - name: amazon.aws
+- name: servicenow.itsm
