@@ -1,0 +1,17 @@
+---
+- name: Using servicenow.itsm.api collection
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Update the task
+      servicenow.itsm.api:
+        instance:
+          host: "test.example.com/api/now/table/task?sysparm_query=number=123456789"
+          username: test
+          password: test
+        resource: task
+        action: patch
+        sys_id: 123456789
+        data:
+          state: closed
+          notes: "test"
