@@ -1,0 +1,43 @@
+---
+- name: RHACS Events
+  hosts: all
+  
+  sources:
+  - ansible.eda.webhook:
+    port: 5001
+    host: 0.0.0.0
+    
+  rules:
+    - name: Cluster PE
+      condition: event.payload.alert.clusterName == "ocp4-pe"
+      action:
+        run_job_template:
+          name: Demo Job Template
+          job_args:
+            extra_vars:
+              cluster: "{{ event.payload.alert.clusterName }}"
+              namespace: "{{ event.payload.alert.namespace }}"
+              policy_name: "{{ event.payload.alert.policy.name }}"
+              category: "{{ event.payload.alert.policy.categories }}"
+              lc: "{{ event.payload.alert.policy.lifecycleStages }}"
+              id: "{{ event.payload.alert.policy.id }}"
+              severity: "{{ event.payload.alert.policy.severity }}"
+              image: "{{ event.payload.alert.deployment.containers[0]['image']['name']['fullName'] | default('N/A', true) }}"
+          organization: "Default"
+
+    - name: Cluster PI
+      condition: event.payload.alert.clusterName == "ocp4-pi"
+      action:
+        run_job_template:
+          name: Demo Job Template
+          job_args:
+            extra_vars:
+              cluster: "{{ event.payload.alert.clusterName }}"
+              namespace: "{{ event.payload.alert.namespace }}"
+              policy_name: "{{ event.payload.alert.policy.name }}"
+              category: "{{ event.payload.alert.policy.categories }}"
+              lc: "{{ event.payload.alert.policy.lifecycleStages }}"
+              id: "{{ event.payload.alert.policy.id }}"
+              severity: "{{ event.payload.alert.policy.severity }}"
+              image: "{{ event.payload.alert.deployment.containers[0]['image']['name']['fullName'] | default('N/A', true) }}"
+          organization: "Default"
