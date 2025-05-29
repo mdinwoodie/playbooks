@@ -1,0 +1,11 @@
+---
+- name: Check and report on service(s).
+  hosts: all
+  become: true
+  tasks:
+    - name: Current state of service(s)
+      ansible.builtin.service_facts:
+    - name: Print service facts
+      ansible.builtin.debug:
+        var: ansible_facts.services[item]
+      with_items: "{{ service }}"
