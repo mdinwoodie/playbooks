@@ -4,8 +4,8 @@
   become: true
   tasks:
     - name: Current state of service(s)
-        ansible.builtin.service_facts:
+      ansible.builtin.service_facts:
     - name: Print service facts
-        ansible.builtin.debug:
-          var: ansible_facts.services[item]
-        with_items: "{{ service }}"
+      ansible.builtin.debug:
+        var: ansible_facts.services[item]
+       with_items: "{{ service }}"
