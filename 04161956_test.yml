@@ -13,7 +13,7 @@
     - name: Query for all schedules
       ansible.builtin.set_fact:
         scheduled_with_next_run: "{{ query('ansible.controller.controller_api', 'schedules',
-                                              host='https://10.0.78.232/',
+                                              host='https://10.0.78.232',
                                               username='fry',
                                               password='fry',
                                               verify_ssl=False,
