@@ -5,9 +5,9 @@
   collections:
     - ansible.controller
   vars:
-    - controller_url: https://10.0.78.232
-    - username: fry
-    - password: fry
+    - controller_url: 'https://10.0.78.232'
+    - username: 'fry'
+    - password: 'fry'
 
   tasks:
 #    - name: Query for all schedules
