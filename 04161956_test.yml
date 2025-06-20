@@ -5,10 +5,10 @@
   collections:
     - ansible.controller
   vars:
-    - controller_url: 'https://10.0.78.232'
-    - username: 'fry'
-    - password: 'fry'
-
+    controller_url: 'https://10.0.78.232'
+    controller_username: 'fry'
+    controller_password: 'fry'
+     
   tasks:
 #    - name: Query for all schedules
 #      ansible.builtin.set_fact:
@@ -17,9 +17,9 @@
     - name: Query for all schedules
       ansible.builtin.set_fact:
         scheduled_with_next_run: "{{ query('ansible.controller.controller_api', 'schedules',
-                                              host='controller_url',
-                                              username='username',
-                                              password='password',
+                                              host=controller_url,
+                                              username=controller_username,
+                                              password=controller_password,
                                               verify_ssl=False,
                                               return_all=true,
                                               max_objects=50000)
