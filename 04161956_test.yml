@@ -3,11 +3,11 @@
   hosts: localhost
   gather_facts: false
   collections:
-  - ansible.controller
+    - ansible.controller
   vars:
-    controller_url: https://10.0.78.232
-    username: fry
-    password: fry
+    - controller_url: https://10.0.78.232
+    - username: fry
+    - password: fry
 
   tasks:
 #    - name: Query for all schedules
@@ -24,3 +24,14 @@
                                               return_all=true,
                                               max_objects=50000)
                                   | list }}"
+
+#    - name: Query for all schedules
+#      ansible.builtin.set_fact:
+#        scheduled_with_next_run: "{{ query('ansible.controller.controller_api', 'schedules',
+#                                              host='https://10.0.78.232',
+#                                              username='fry',
+#                                              password='fry',
+#                                              verify_ssl=False,
+#                                              return_all=true,
+#                                              max_objects=50000)
+#                                  | list }}"
