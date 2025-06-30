@@ -1,0 +1,27 @@
+---
+- name: Validación de flujo y notificación por error
+  hosts: localhost
+  sources:
+    - name: csv_source
+      ansible.eda.csv:
+        path: "Playbooks/rulebooks/lineatransaccional.csv"
+        delimiter: ";"
+  rules:
+    - name: Validar archivos en servidores y notificar si falla
+      condition: event is defined
+      action:
+        run_job_template:
+          name: "Demo Job Template"
+
+    - name: Notificar si falla alguna validación
+      condition: event.resultado_validacion is defined and event.resultado_validacion != ""
+      action:
+        ansible.eda.send_email:
+          to: "mdinwood@redhat.com"
+          subject: "ALERTA: Error de validación de archivos"
+          body: |
+            Se detectó un error en la validación de archivos:
+            {{ event.resultado_validacion }}
+          smtp_host: 10.0.78.232
+          smtp_port: 25
+          from: "ansible@test.com"
