@@ -8,6 +8,6 @@
         path: /test/dir/045
         state: directory
         mode: '0755'
-        owner: awx
-        group: awx
+        owner: cloud-user
+        group: cloud-user
       delegate_to: localhost
