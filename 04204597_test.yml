@@ -5,7 +5,7 @@
   tasks:
     - name: Create the directory in ansible controller
       file:
-        path: /test/dir/045
+        path: /test/dir/045/
         state: directory
         mode: '0755'
         owner: cloud-user
