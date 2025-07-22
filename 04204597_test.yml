@@ -1,0 +1,13 @@
+---
+- name: Change request template
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Create the directory in ansible controller
+      file:
+        path: /test/dir/045
+        state: directory
+        mode: '0755'
+        owner: awx
+        group: awx
+      delegate_to: localhost
