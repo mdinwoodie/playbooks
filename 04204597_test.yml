@@ -10,4 +10,4 @@
         mode: '0755'
         owner: cloud-user
         group: cloud-user
-      delegate_to: localhost
+      #delegate_to: localhost
