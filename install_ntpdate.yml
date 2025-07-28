@@ -1,0 +1,10 @@
+---
+- name: Ping test for local connection
+  hosts: all
+  gather_facts: false
+  tasks:
+
+  - name: Install ntpdate
+    ansible.builtin.package:
+      name: ntpdate
+      state: present
