@@ -1,0 +1,15 @@
+---
+- name: filewatch
+  hosts: localhost
+  sources:
+    - name: file_watch
+      ansible.eda.file_watch:
+        path: /tmp/file_target_dir/
+        recursive: false
+
+
+  rules:
+    - name: peeps_creeps
+      condition: event.something == true
+      action:
+        debug:
