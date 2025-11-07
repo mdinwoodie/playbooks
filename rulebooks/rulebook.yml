@@ -22,7 +22,7 @@
         port: 5000
         event_types:
           - problem
- rules:
+ - rules:
     - name: NGINX Ingress 504 Remediation
       condition: >
         event.payload.problemTitle is search("ingress-nginx-controller-kb862") and
