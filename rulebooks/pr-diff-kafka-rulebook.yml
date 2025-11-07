@@ -7,7 +7,8 @@
         name: dynatrace_stream
         stream_url: "https://eda.example.com/eda-event-streams/api/eda/v1/external_event_stream/3acb3a4b-1d2e-4fd9-9a19-bcd5b7395e84/"
         token: "{{ EDA_TOKEN }}"
-    - dt_webhook:
+    - name: webhook task
+      dt_webhook:
         host: 0.0.0.0
         port: 5000
         event_types:
