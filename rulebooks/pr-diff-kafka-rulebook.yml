@@ -14,17 +14,17 @@
         debug:
           msg: "Received Dynatrace event: {{ event.payload }}"
 
-- name: "Read messages from a dynatrace and act on them"
-  hosts: all
-  sources:
-    - dt_webhook:
-        host: 0.0.0.0
-        port: 5000
-        event_types:
-          - problem
-  rules:
-    - name: NGINX Ingress 504 Remediation
-      condition: >
-        event.payload.problemTitle is search("ingress-nginx-controller-kb862") and
-        event.payload.status == "OPEN" and
-        event.payload.impactLevel == "APPLICATION"
+#- name: "Read messages from a dynatrace and act on them"
+#  hosts: all
+#  sources:
+#    - dt_webhook:
+#        host: 0.0.0.0
+#        port: 5000
+#        event_types:
+#          - problem
+#  rules:
+#    - name: NGINX Ingress 504 Remediation
+#      condition: >
+#        event.payload.problemTitle is search("ingress-nginx-controller-kb862") and
+#        event.payload.status == "OPEN" and
+#        event.payload.impactLevel == "APPLICATION"
