@@ -2,6 +2,8 @@
 - name: Test CyberArk Credential Retrieval
   hosts: localhost
   gather_facts: no
+  collections:
+    - cyberark.pas
   tasks:
     - name: Retrieve credential from CyberArk
     - cyberark.pas.cyberark_credential:
