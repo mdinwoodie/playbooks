@@ -1,0 +1,19 @@
+---
+- name: Test CyberArk Credential Retrieval
+  hosts: localhost
+  gather_facts: no
+  collections:
+  - name: "cyberark.pas"
+  tasks:
+    - name: Retrieve credential from CyberArk
+    - cyberark.pas.cyberark_credential:
+        api_base_url: "https://pvwa-nwk.pseg.com"
+        app_id: "entnbu.pseg.com-ServiceHLANBUANS1"
+        query: "Safe=NB-PR-APP-ANSIBLE-SVC;UserName=entnbu.pseg.com-ServiceHLANBUANS1"
+      register: cyberark_secret
+      no_log: true # Prevents sensitive data from appearing in logs
+
+    - name: Display retrieved username (for testing purposes, do not do in production)
+      debug:
+        msg: "Retrieved username: {{ cyberark_secret.username }}"
+      when: cyberark_secret.username is defined
