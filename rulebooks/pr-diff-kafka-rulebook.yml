@@ -1,9 +1,9 @@
 ---
 - name: "Read messages from a dynatrace and act on them"
   hosts: all
-  - name: Listen to Dynatrace events
     sources:
-      - ansible.eda.external_source:
+      - name: Listen to Dynatrace events
+        ansible.eda.external_source:
           name: dynatrace_stream
           stream_url: "https://eda.example.com/eda-event-streams/api/eda/v1/external_event_stream/3acb3a4b-1d2e-4fd9-9a19-bcd5b7395e84/"
           token: "{{ EDA_TOKEN }}"
