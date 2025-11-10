@@ -3,7 +3,7 @@
   hosts: localhost
   gather_facts: no
   collections:
-  - name: "cyberark.pas"
+    - name: cyberark.pas
   tasks:
     - name: Retrieve credential from CyberArk
     - cyberark.pas.cyberark_credential:
