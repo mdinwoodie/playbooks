@@ -16,6 +16,9 @@
         validate_certs: false
         src_vm_uuid: "20b20919-6fb5-4113-a3e9-eeefdbda8808" #randomly generated UUID
         name: "test"
+        nutanix_password: "test"
+        nutanix_username: "test"
+        nutanix_host: "test"
         networks:
           - is_connected: true
             subnet:
