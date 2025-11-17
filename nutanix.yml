@@ -1,0 +1,30 @@
+---
+- name: Nutanix Test
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Deploy new Windows VM in Nutanix AHV using Ansible Module
+      #when: os_type == 'windows'
+      register: deploy_vm_nutanix
+      until: not deploy_vm_nutanix.failed
+      retries: 1
+      delay: 60
+      no_log: false
+      nutanix.ncp.ntnx_vms_clone:
+        state: present
+        wait: true
+        validate_certs: false
+        src_vm_uuid: "20b20919-6fb5-4113-a3e9-eeefdbda8808" #randomly generated UUID
+        name: "test"
+        networks:
+          - is_connected: true
+            subnet:
+              uuid: ""
+              cluster:
+                uuid: "12136599-44b3-4ae6-8486-08cb4374dd46" #randomly generated UUID
+        timezone: "America/New_York"
+        guest_customization:
+          type: "sysprep"
+          # the module expects a path here, not the contents of a file
+          script_path: "/tmp/nutanix"
+          is_overridable: true
