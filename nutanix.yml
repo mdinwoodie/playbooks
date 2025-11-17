@@ -5,10 +5,10 @@
   tasks:
     - name: Deploy new Windows VM in Nutanix AHV using Ansible Module
       #when: os_type == 'windows'
-      register: deploy_vm_nutanix
-      until: not deploy_vm_nutanix.failed
-      retries: 1
-      delay: 60
+      #register: deploy_vm_nutanix
+      #until: not deploy_vm_nutanix.failed
+      #retries: 1
+      #delay: 60
       no_log: false
       nutanix.ncp.ntnx_vms_clone:
         state: present
