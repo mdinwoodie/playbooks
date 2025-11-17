@@ -12,3 +12,4 @@ collections:
 #- name: amazon.aws
 #- name: servicenow.itsm
 - name: cyberark.pas
+- name: nutanix.ncp
