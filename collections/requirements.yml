@@ -2,7 +2,7 @@
 collections:
 #- name: netapp.ontap
 #  version: '22.3'
-- name: community.general
+#- name: community.general
 #- name: device42.d42
 #  version: 1.1.2
 #  source: https://galaxy.ansible.com/
@@ -11,5 +11,6 @@ collections:
 #- f5networks.f5_modules
 #- name: amazon.aws
 #- name: servicenow.itsm
-- name: cyberark.pas
-- name: nutanix.ncp
+#- name: cyberark.pas
+#- name: nutanix.ncp
+- name: servicenow.itsm
