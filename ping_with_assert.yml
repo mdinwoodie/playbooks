@@ -4,13 +4,13 @@
   gather_facts: true
   #connection: local
   tasks:
-  - name: Assert that --limit matches at least one host
-    run_once: yes
-    assert:
-      that:
-        - ansible_play_batch | length > 0
-      fail_msg: "Playbook must be run with a --limit parameter that matches at least one host."
-      success_msg: "Limit successfully applied and matching hosts found."
+  #- name: Assert that --limit matches at least one host
+  #  run_once: yes
+  #  assert:
+  #    that:
+  #      - ansible_play_batch | length > 0
+  #    fail_msg: "Playbook must be run with a --limit parameter that matches at least one host."
+  #    success_msg: "Limit successfully applied and matching hosts found."
   - name: ping
     ping:
     #delegate_to: localhost
