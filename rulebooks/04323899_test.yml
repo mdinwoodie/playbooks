@@ -1,0 +1,30 @@
+---
+- name: rulebook - PRUEBAS - ejecutar job templates DGT
+  hosts: all
+
+  sources:
+    - name: pruebas_webhook
+      ansible.eda.event_stream:
+        name: Test Token Event Stream
+
+  rules:
+    - name: Ejecutar Job Despliegue (desde PRUEBA_EVENTO)
+      condition: true #event.folder_key == "test1"
+      action:
+        run_job_template:
+          name: "Demo Job Template"
+          organization: "Default"
+
+    - name: Ejecutar Job Codigo Unico (desde test2)
+      condition: event.folder_key == 'test2' #event.folder_key == "PRUEBA_DESPLIEGUE"
+      action:
+        run_job_template:
+          name: "Create a file"
+          organization: "Default"
+
+    - name: Ejecutar Job Consultas (desde test3)
+      condition: event.folder_key == "test3"
+      action:
+        run_job_template:
+          name: "Long Running Job"
+          organization: "Default"
