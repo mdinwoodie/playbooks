@@ -9,3 +9,4 @@
     #delegate_to: localhost
     environment:
       keep_remote_files: true
+    serial: 1
