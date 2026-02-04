@@ -7,6 +7,5 @@
   - name: ping
     ping:
     #delegate_to: localhost
-    environment:
-      keep_remote_files: true
-    serial: 1
+    tags: always
+    when: image_sku is search ("Windows")
