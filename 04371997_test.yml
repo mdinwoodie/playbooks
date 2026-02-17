@@ -1,0 +1,92 @@
+---
+- name: Playbook to create virtual machines
+  hosts: all
+  gather_facts: no
+
+  vars_prompt:
+    - name: "dns"
+      prompt: "Please enter."
+      private: no
+    - name: "short"
+      prompt: "Please enter"
+      private: no
+    - name: "ad"
+      prompt: "Please enter"
+      private: no
+    - name: "computer"
+      prompt: "Please enter"
+      private: no
+    - name: "deployment_type"
+      prompt: "Please identify"
+      private: no
+    - name: "vlan"
+      prompt: "Provide VLAN"
+      private: no
+    - name: "requestor"
+      prompt: "Please provide"
+      private: no
+    - name: "ticket"
+      prompt: "Please provide"
+      private: no
+
+  pre_tasks:
+    - name: Set target group
+      set_fact:
+        target_group: "{{ inventory_type }}"
+      tags:
+        - vmcreation
+
+    - name: Set target host
+      set_fact:
+        target_host: "{{ groups[target_group][0] }}"
+      tags:
+        - vmcreation
+
+    - name: Set vm_datastore
+      set_fact:
+        vm_datastore: "{{ hostvars[target_host]['vm_datastore'] }}"
+      tags:
+        - vmcreation
+
+    - name: Set computer name
+      set_fact:
+        computer_name: >-
+          {{
+            ('TS-' ~ (ad | default('')) ~ (short | default('')))
+            | upper
+            | truncate(15, True, '')
+          }}
+      tags:
+        - vmcreation
+
+    - name: Set group_name
+      set_fact:
+        group_name: >-
+          {{ ('GG-' ~ (short | replace('_','') | replace('-','')) ~ '-Admins') | lower }}
+      tags:
+        - vmcreation
+
+  roles:
+    - role: inputs
+    - role: vmware
+    - role: network
+    - role: inventory
+      when: deployment_type == "production"
+    - role: sssd
+    - role: redhat_maintenance
+    - role: mdatp
+      when: inventory_type == "internal"
+    - role: splunk
+    - role: qualys
+      when: inventory_type == "internal"
+
+  post_tasks:
+    - name: Run VMware VLAN change sequence
+      import_role:
+        name: vmware
+        tasks_from: vlan.yml
+      when:
+        - vlan is defined
+        - vlan | string | trim | length > 0
+        - vlan | string | trim | lower not in ['n/a', 'na', 'none', 'no', 'null', 'tbd']
+
