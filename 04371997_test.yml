@@ -66,27 +66,8 @@
       tags:
         - vmcreation
 
-  roles:
-    - role: inputs
-    - role: vmware
-    - role: network
-    - role: inventory
-      when: deployment_type == "production"
-    - role: sssd
-    - role: redhat_maintenance
-    - role: mdatp
-      when: inventory_type == "internal"
-    - role: splunk
-    - role: qualys
-      when: inventory_type == "internal"
-
-  post_tasks:
-    - name: Run VMware VLAN change sequence
-      import_role:
-        name: vmware
-        tasks_from: vlan.yml
-      when:
-        - vlan is defined
-        - vlan | string | trim | length > 0
-        - vlan | string | trim | lower not in ['n/a', 'na', 'none', 'no', 'null', 'tbd']
+  taks:
+  - name: Details
+    debug:
+      msg: "This is the master branch"
 
