@@ -66,7 +66,7 @@
       tags:
         - vmcreation
 
-  taks:
+  tasks:
   - name: Details
     debug:
       msg: "This is the master branch"
