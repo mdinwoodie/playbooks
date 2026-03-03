@@ -14,7 +14,7 @@
           - event.payload.message == "Ansible is super cool!"
       action: 
         debug:
-          msg: event.payload
+          msg: "The value is {{ event.payload }}"
 
 
 # Trigger rulebook with the following command:
