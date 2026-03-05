@@ -7,7 +7,7 @@
         port: 5002
   rules:
     - name: Read raw payload 
-      condition: event.payload.message == "Ansible is super cool!"
+      condition: event.meta is defined or event.payload.message == "test"
         #any:
           #- event.meta is defined
           #- event.payload is defined
@@ -18,4 +18,4 @@
 
 
 # Trigger rulebook with the following command:
-# curl --header "Content-Type: application/json" --request POST --data '{"message":"Ansible is super cool"}' http://$EDA_CONTROLLER:5002
+# curl --header "Content-Type: application/json" --request POST --data '{"message":"test"}' http://$EDA_CONTROLLER:5002
