@@ -14,4 +14,5 @@ collections:
 #- name: cyberark.pas
 #- name: nutanix.ncp
 #- name: servicenow.itsm
+- name: ansible.netcommon
 - name: f5networks.f5_modules
