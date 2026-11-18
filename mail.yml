@@ -1,9 +1,14 @@
-- name: /usr/bin/mailx test
+- name: Sending mail
   hosts: all
   gather_facts: false
   
   tasks:
-  - name: Send mail if preflight has failed state
-    ansible.builtin.shell: 
-      cmd: 'echo "test" | /usr/bin/mailx -s "localhost: Preflight check failed" test@test.com'
+  #- name: Send mail if preflight has failed state
+  #  ansible.builtin.shell: 
+  #    cmd: 'echo "test" | /usr/bin/mailx -s "localhost: Preflight check failed" test@test.com'
+  #  delegate_to: localhost
+    
+  - name: Example playbook sending mail to root
+    community.general.mail:
+      subject: System {{ ansible_hostname }} has been successfully provisioned.
     delegate_to: localhost
