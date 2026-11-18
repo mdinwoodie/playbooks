@@ -1,6 +1,6 @@
 ---
 collections:
-- name: community.general
+  - name: community.general
 #- name: netapp.ontap
 #  version: '22.3'
 #- name: community.general
