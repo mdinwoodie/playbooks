@@ -10,5 +10,5 @@
     
   - name: Example playbook sending mail to root
     community.general.mail:
-      subject: System {{ ansible_hostname }} has been successfully provisioned.
+      subject: System has been successfully provisioned.
     delegate_to: localhost
